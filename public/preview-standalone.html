@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSense AI // INTERACTIVE NEO-BRUTALIST PREVIEW (PURE CSS3 GRID)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/neo-brutalism.css">
+</head>
+<body>
+    <!-- 01. TOP SYSTEM TELEMETRY BAR -->
+    <header class="top-telemetry-bar">
+        <div class="brand-lockup">
+            <span class="brand-badge">GS//AI v1.1</span>
+            <h1 class="brand-title">GAMESENSE AI // TACTICAL COMMAND</h1>
+        </div>
+        <div></div>
+        <div class="telemetry-strip">
+            <div class="telemetry-pill">
+                <span class="dot-online"></span>
+                <span>VM: <strong>OCI E2.1.Micro (1/8 OCPU // 1GB RAM)</strong></span>
+            </div>
+            <div class="telemetry-pill">
+                <span class="dot-online"></span>
+                <span>MODEL: <strong>gemini-3.5-flash-lite</strong></span>
+            </div>
+            <div class="telemetry-pill">
+                <span>CACHE RATIO: <strong id="metric-cache-ratio">90.2%</strong></span>
+            </div>
+            <div class="telemetry-pill">
+                <span>API CALLS SAVED: <strong id="metric-saved-calls">37</strong></span>
+            </div>
+            <div class="telemetry-pill">
+                <span>PHP RAM: <strong>18.4 MB</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 02. 12-COLUMN PURE CSS3 GRID COMMAND DECK -->
+    <main class="command-deck-wrapper">
+        <div class="command-grid-12">
+
+            <!-- LEFT COLUMN (5 COLUMNS) -->
+            <section class="deck-col-left">
+                <article class="brutal-module">
+                    <div class="brutal-module-header">
+                        <h2 class="brutal-module-title">01 // SELECT TARGET GAME</h2>
+                        <span class="brutal-module-tag">GRID 2x2</span>
+                    </div>
+                    <div class="brutal-module-body">
+                        <div class="games-card-grid" id="preview-games-grid">
+                            <button type="button" class="game-card-btn is-selected" data-slug="victoria-3" data-code="VIC-03" data-title="Victoria 3">
+                                <div class="game-card-top">
+                                    <span class="game-short-code">VIC-03</span>
+                                    <span class="game-engine-badge">Clausewitz Engine</span>
+                                </div>
+                                <div>
+                                    <div class="game-card-name">Victoria 3</div>
+                                    <div class="game-card-genre">Grand Strategy</div>
+                                </div>
+                            </button>
+
+                            <button type="button" class="game-card-btn" data-slug="hollow-knight" data-code="HK-01" data-title="Hollow Knight">
+                                <div class="game-card-top">
+                                    <span class="game-short-code">HK-01</span>
+                                    <span class="game-engine-badge">Unity 2D</span>
+                                </div>
+                                <div>
+                                    <div class="game-card-name">Hollow Knight</div>
+                                    <div class="game-card-genre">Metroidvania</div>
+                                </div>
+                            </button>
+
+                            <button type="button" class="game-card-btn" data-slug="farming-simulator-25" data-code="FS-25" data-title="Farming Simulator 25">
+                                <div class="game-card-top">
+                                    <span class="game-short-code">FS-25</span>
+                                    <span class="game-engine-badge">GIANTS Engine 10</span>
+                                </div>
+                                <div>
+                                    <div class="game-card-name">Farming Simulator 25</div>
+                                    <div class="game-card-genre">Agro Simulation</div>
+                                </div>
+                            </button>
+
+                            <button type="button" class="game-card-btn" data-slug="baldurs-gate-3" data-code="BG-03" data-title="Baldur's Gate 3">
+                                <div class="game-card-top">
+                                    <span class="game-short-code">BG-03</span>
+                                    <span class="game-engine-badge">Divinity 4.0</span>
+                                </div>
+                                <div>
+                                    <div class="game-card-name">Baldur's Gate 3</div>
+                                    <div class="game-card-genre">Tactical CRPG</div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="brutal-module">
+                    <div class="brutal-module-header">
+                        <h2 class="brutal-module-title">02 // CURRENT STATE TELEMETRY</h2>
+                        <span class="brutal-module-tag" id="selected-game-indicator">VIC-03</span>
+                    </div>
+                    <div class="brutal-module-body">
+                        <form id="preview-form" class="tactical-form">
+                            <div class="form-row-grid-2">
+                                <div class="field-group">
+                                    <label class="field-label" for="input-category-id">
+                                        <span>TACTICAL CATEGORY</span>
+                                        <span class="code-hint">MYSQL FK</span>
+                                    </label>
+                                    <select id="input-category-id" class="brutal-select">
+                                        <option value="ECO-01">[ECO-01] Economy & Resources</option>
+                                        <option value="BLD-02">[BLD-02] Builds & Loadouts</option>
+                                        <option value="CMB-03">[CMB-03] Combat & Bosses</option>
+                                        <option value="LOG-04">[LOG-04] Logistics & Automation</option>
+                                    </select>
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="input-game-phase">
+                                        <span>GAME PHASE</span>
+                                        <span class="code-hint">STATE</span>
+                                    </label>
+                                    <select id="input-game-phase" class="brutal-select">
+                                        <option value="Early Game (Opening / Year 1)">Early Game (Opening / Year 1)</option>
+                                        <option value="Mid Game (Industrialization / Act 2)" selected>Mid Game (Industrialization / Act 2)</option>
+                                        <option value="Late Game (Endgame / Pantheon / Honour)">Late Game (Endgame / Pantheon / Honour)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label class="field-label" for="input-missing-resource">
+                                    <span>MISSING RESOURCE / CRITICAL BOTTLENECK</span>
+                                    <span class="code-hint">BOTTLENECK</span>
+                                </label>
+                                <input type="text" id="input-missing-resource" class="brutal-input" value="Coal & Iron (+58% above base price)">
+                            </div>
+
+                            <div class="field-group">
+                                <label class="field-label" for="input-user-query">
+                                    <span>SITUATION REPORT (TACTICAL PROMPT)</span>
+                                    <span class="code-hint">SHA-256 HASHED</span>
+                                </label>
+                                <textarea id="input-user-query" class="brutal-textarea">My Construction Sectors entered a severe deficit after switching to Iron-Frame Buildings. Coal and Iron prices skyrocketed and my gold reserves will hit zero in 10 weeks.</textarea>
+                            </div>
+
+                            <button type="submit" class="brutal-btn brutal-btn-primary">
+                                <span>RUN TACTICAL ANALYSIS</span>
+                                <span>[ENTER]</span>
+                            </button>
+                        </form>
+                    </div>
+                </article>
+            </section>
+
+            <!-- RIGHT COLUMN (7 COLUMNS) -->
+            <section class="deck-col-right">
+                <div id="queue-loading-banner" class="queue-loading-banner">
+                    <span id="queue-status-text">[QUEUE WORKER] PROCESSING TELEMETRY ON GEMINI-3.5-FLASH-LITE...</span>
+                    <span>QUEUE: DATABASE</span>
+                </div>
+
+                <article class="ai-response-box">
+                    <div class="ai-response-header">
+                        <div class="ai-header-left">
+                            <span class="ai-terminal-title">03 // AI RESPONSE TERMINAL</span>
+                        </div>
+                        <div class="ai-badges-group">
+                            <span id="badge-cache-status" class="status-badge cache-hit">CACHE HIT // 2ms</span>
+                            <span id="badge-threat-level" class="status-badge threat-critical">THREAT: CRITICAL</span>
+                            <span id="badge-hit-counter" class="status-badge queue-live">HITS: 14</span>
+                        </div>
+                    </div>
+
+                    <div class="ai-response-content">
+                        <div class="ai-meta-strip">
+                            <div class="ai-meta-cell">
+                                <div class="ai-meta-label">GAME // ENGINE</div>
+                                <div class="ai-meta-value" id="out-game-title">Victoria 3 [VIC-03]</div>
+                            </div>
+                            <div class="ai-meta-cell">
+                                <div class="ai-meta-label">CATEGORY</div>
+                                <div class="ai-meta-value" id="out-category-name">[ECO-01] Economy & Resources</div>
+                            </div>
+                            <div class="ai-meta-cell">
+                                <div class="ai-meta-label">MATCH PHASE</div>
+                                <div class="ai-meta-value" id="out-game-phase">Mid Game (Industrialization)</div>
+                            </div>
+                            <div class="ai-meta-cell">
+                                <div class="ai-meta-label">TARGET BOTTLENECK</div>
+                                <div class="ai-meta-value" id="out-missing-resource">Coal & Iron (+58%)</div>
+                            </div>
+                        </div>
+
+                        <div class="ai-directive-banner">
+                            <div class="ai-directive-label">ENGINE: gemini-3.5-flash-lite</div>
+                            <h3 class="ai-directive-heading" id="out-tactical-title">
+                                INDUSTRIAL SHOCK DIRECTIVE // DE-BOTTLENECKING COAL & IRON
+                            </h3>
+                        </div>
+
+                        <ul class="ai-steps-list" id="out-steps-list">
+                            <li class="ai-step-item">
+                                <span class="ai-step-number">01</span>
+                                <span class="ai-step-text">Immediately pause secondary Construction Sector expansions to halt the bleeding deficit on Coal & Iron.</span>
+                            </li>
+                            <li class="ai-step-item">
+                                <span class="ai-step-number">02</span>
+                                <span class="ai-step-text">Enact the 'Encourage Resource Industry' decree in your highest-throughput state and establish a tariff-free import route.</span>
+                            </li>
+                            <li class="ai-step-item">
+                                <span class="ai-step-number">03</span>
+                                <span class="ai-step-text">Switch Production Methods (PMs) incrementally (1 state at a time) to prevent market price shocks exceeding +45%.</span>
+                            </li>
+                            <li class="ai-step-item">
+                                <span class="ai-step-number">04</span>
+                                <span class="ai-step-text">Levy Consumption Taxes on Luxury Goods to fund temporary subsidies on railway infrastructure.</span>
+                            </li>
+                        </ul>
+
+                        <div class="ai-metrics-grid" id="out-metrics-grid">
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-card-label">MARKET EQUILIBRIUM</div>
+                                <div class="ai-metric-card-value">-38% BASE PRICE</div>
+                            </div>
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-card-label">STATE THROUGHPUT</div>
+                                <div class="ai-metric-card-value">+25% OUTPUT</div>
+                            </div>
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-card-label">GOLD RESERVE</div>
+                                <div class="ai-metric-card-value">STABLE IN 16 WKS</div>
+                            </div>
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-card-label">RADICALS PREVENTED</div>
+                                <div class="ai-metric-card-value">-14.2K POPS</div>
+                            </div>
+                        </div>
+
+                        <div class="ai-outcome-bar">
+                            <span class="ai-outcome-tag">PROJECTED OUTCOME</span>
+                            <span id="out-expected-outcome">Normalizes Coal & Iron market cost below +10% base price and restores GDP growth within 12–18 weeks.</span>
+                        </div>
+
+                        <div class="ai-actions-toolbar">
+                            <div class="ai-hash-signature">SHA-256: 8f9d2a7c4e1b09f3a6d2...</div>
+                            <div class="ai-export-buttons">
+                                <button type="button" id="preview-copy-btn" class="brutal-btn brutal-btn-dark">
+                                    <span>COPY DIRECTIVE (.TXT)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

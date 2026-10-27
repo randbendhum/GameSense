@@ -1,0 +1,24 @@
+# ==========================================================================
+# SYSTEMD UNIT — LARAVEL DATABASE QUEUE WORKER (AUTO-RECICLÁVEL / 64MB RAM)
+# Caminho na VM: /etc/systemd/system/gamesense-worker.service
+# Dispensa a instalação de supervisord (economizando ~35MB de RAM do Python).
+# ==========================================================================
+
+[Unit]
+Description=GameSense AI Laravel Queue Worker (Database Driver)
+After=network.target mysql.service
+
+[Service]
+User=www-data
+Group=www-data
+Restart=always
+RestartSec=3
+WorkingDirectory=/var/www/gamesense-ai
+ExecStart=/usr/bin/php /var/www/gamesense-ai/artisan queue:work database --sleep=3 --tries=2 --max-jobs=50 --max-time=3600 --memory=64 --no-interaction
+MemoryMax=96M
+StandardOutput=append:/var/www/gamesense-ai/storage/logs/worker.log
+StandardError=append:/var/www/gamesense-ai/storage/logs/worker.log
+
+[Install]
+WantedBy=multi-user.target
+

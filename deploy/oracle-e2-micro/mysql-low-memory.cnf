@@ -1,0 +1,33 @@
+# ==========================================================================
+# MYSQL 8.0 ULTRA-LOW FOOTPRINT (~180 MB RAM) PARA ORACLE E2.1.MICRO (1GB RAM)
+# Caminho na VM: /etc/mysql/mysql.conf.d/z-gamesense-low-memory.cnf
+# ==========================================================================
+
+[mysqld]
+# Desativar o performance_schema economiza ~120MB a ~160MB de RAM imediatamente!
+performance_schema = OFF
+
+# Buffer Pool enxuto (64MB sobra para milhares de logs táticos e cache SHA-256)
+innodb_buffer_pool_size = 64M
+innodb_log_buffer_size = 8M
+innodb_redo_log_capacity = 32M
+innodb_flush_log_at_trx_commit = 2
+innodb_flush_method = O_DIRECT
+
+# Limite de conexões compatível com pm.max_children = 4 + 1 Queue Worker
+max_connections = 20
+table_open_cache = 200
+table_definition_cache = 250
+thread_cache_size = 4
+
+# Buffers por thread reduzidos para evitar picos de memória
+sort_buffer_size = 256K
+read_buffer_size = 128K
+read_rnd_buffer_size = 128K
+join_buffer_size = 256K
+tmp_table_size = 8M
+max_heap_table_size = 8M
+
+# Desativa Binlog caso não use replicação (economiza RAM e I/O de disco na E2.1.Micro)
+skip-log-bin
+

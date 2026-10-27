@@ -1,0 +1,822 @@
+/* ==========================================================================
+   GAMESENSE AI — NEO-BRUTALISM / HARDCORE GAMING UI (PURE CSS3 GRID)
+   Zero Frameworks • Bordas 3px Sólidas • Sombras Rígidas 4px • Zero Blur
+   ========================================================================== */
+
+:root {
+    /* Paleta de Cores Oficial */
+    --bg-neutral-main: #F4F4F0;
+    --bg-neutral-alt: #EBEBE6;
+    --pure-black: #000000;
+    --pure-white: #FFFFFF;
+    --acid-yellow: #FFDE59;
+    --alert-orange: #FF5722;
+    --monitor-green: #00FF66;
+
+    /* Diretrizes de Bordas & Sombras Rígidas */
+    --brutal-border: 3px solid #000000;
+    --brutal-radius: 0px;
+    --brutal-shadow: 4px 4px 0px #000000;
+    --brutal-shadow-active: 2px 2px 0px #000000;
+    --brutal-shadow-lg: 6px 6px 0px #000000;
+
+    /* Tipografia Técnica */
+    --font-display: 'Archivo Black', 'Space Grotesk', Impact, 'Arial Black', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+}
+
+/* Reset Estrutural Estrito — Nada de Cantos Arredondados */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    border-radius: 0px !important;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: var(--bg-neutral-main);
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--pure-black);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.45;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   1. BARRA SUPERIOR DE TELEMETRIA (SYSTEM HEADER)
+   ========================================================================== */
+.top-telemetry-bar {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    border-bottom: var(--brutal-border);
+    padding: 12px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-badge {
+    background-color: var(--acid-yellow);
+    color: var(--pure-black);
+    border: 2px solid var(--pure-white);
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    text-transform: uppercase;
+}
+
+.brand-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--pure-white);
+}
+
+.telemetry-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.telemetry-pill {
+    background-color: #141414;
+    border: 2px solid var(--pure-white);
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.telemetry-pill .dot-online {
+    width: 8px;
+    height: 8px;
+    background-color: var(--monitor-green);
+    display: inline-block;
+}
+
+.telemetry-pill .dot-standby {
+    width: 8px;
+    height: 8px;
+    background-color: var(--acid-yellow);
+    display: inline-block;
+}
+
+.telemetry-pill strong {
+    color: var(--monitor-green);
+}
+
+/* ==========================================================================
+   2. CONTAINER & PURE CSS3 GRID (12 COLUNAS MODULARES)
+   ========================================================================== */
+.command-deck-wrapper {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.command-grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.deck-col-left {
+    grid-column: span 5;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.deck-col-right {
+    grid-column: span 7;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+/* ==========================================================================
+   3. CAIXAS MODULARES NEO-BRUTALISTAS
+   ========================================================================== */
+.brutal-module {
+    background-color: var(--pure-white);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.brutal-module-header {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    padding: 10px 16px;
+    border-bottom: var(--brutal-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.brutal-module-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.brutal-module-tag {
+    background-color: var(--bg-neutral-alt);
+    color: var(--pure-black);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border: 2px solid var(--pure-white);
+}
+
+.brutal-module-body {
+    padding: 18px;
+    background-color: var(--bg-neutral-alt);
+}
+
+/* ==========================================================================
+   4. GRID DE CARTÕES DE JOGOS (BLOCOS QUADRADOS DE ALTO CONTRASTE)
+   ========================================================================== */
+.games-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.game-card-btn {
+    appearance: none;
+    background-color: var(--pure-white);
+    color: var(--pure-black);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+    padding: 14px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 126px;
+    transition: transform 0.05s steps(2), box-shadow 0.05s steps(2), background-color 0.08s ease;
+    position: relative;
+}
+
+.game-card-btn:hover {
+    background-color: var(--bg-neutral-main);
+}
+
+.game-card-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: var(--brutal-shadow-active);
+}
+
+.game-card-btn.is-selected {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    box-shadow: 4px 4px 0px var(--alert-orange);
+}
+
+.game-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+}
+
+.game-short-code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border: 2px solid var(--pure-black);
+    background-color: var(--acid-yellow);
+    color: var(--pure-black);
+}
+
+.game-card-btn.is-selected .game-short-code {
+    background-color: var(--monitor-green);
+    border-color: var(--pure-white);
+}
+
+.game-engine-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    opacity: 0.85;
+    text-transform: uppercase;
+}
+
+.game-card-name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-top: 12px;
+}
+
+.game-card-genre {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 4px;
+    text-transform: uppercase;
+    color: #333333;
+}
+
+.game-card-btn.is-selected .game-card-genre {
+    color: var(--acid-yellow);
+}
+
+/* ==========================================================================
+   5. FORMULÁRIO DE TELEMETRIA TÁTICA & INPUTS BRUTALISTAS
+   ========================================================================== */
+.tactical-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.form-row-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field-label {
+    font-family: var(--font-display);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.field-label span.code-hint {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    padding: 1px 6px;
+}
+
+.brutal-input,
+.brutal-select,
+.brutal-textarea {
+    width: 100%;
+    background-color: var(--pure-white);
+    color: var(--pure-black);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+    padding: 10px 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    outline: none;
+    transition: transform 0.05s steps(2), box-shadow 0.05s steps(2), background-color 0.08s ease;
+}
+
+.brutal-input:focus,
+.brutal-select:focus,
+.brutal-textarea:focus {
+    background-color: #FFFDF2;
+    box-shadow: 4px 4px 0px var(--alert-orange);
+}
+
+.brutal-textarea {
+    min-height: 98px;
+    resize: vertical;
+}
+
+/* Pílulas Rápidas de Recursos (Quick Fill Chips) */
+.resource-chips-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.resource-chip-btn {
+    background-color: var(--pure-white);
+    color: var(--pure-black);
+    border: 2px solid var(--pure-black);
+    box-shadow: 2px 2px 0px var(--pure-black);
+    padding: 3px 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.resource-chip-btn:hover {
+    background-color: var(--acid-yellow);
+}
+
+.resource-chip-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--pure-black);
+}
+
+/* ==========================================================================
+   6. BOTÕES COM PRESSÃO FÍSICA (:active translate(2px, 2px))
+   ========================================================================== */
+.brutal-btn {
+    appearance: none;
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 13px 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.05s steps(2), box-shadow 0.05s steps(2);
+    user-select: none;
+}
+
+.brutal-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: var(--brutal-shadow-active);
+}
+
+.brutal-btn-primary {
+    background-color: var(--alert-orange);
+    color: var(--pure-black);
+    width: 100%;
+    font-size: 15px;
+}
+
+.brutal-btn-primary:hover {
+    background-color: #FF6E40;
+}
+
+.brutal-btn-dark {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+}
+
+.brutal-btn-dark:hover {
+    background-color: #1F1F1F;
+}
+
+.brutal-btn-white {
+    background-color: var(--pure-white);
+    color: var(--pure-black);
+}
+
+.brutal-btn-white:hover {
+    background-color: var(--bg-neutral-main);
+}
+
+/* ==========================================================================
+   7. CAIXA DE RESPOSTA IA (DESTAQUE AMARELO ELÉTRICO #FFDE59)
+   ========================================================================== */
+.ai-response-box {
+    background-color: var(--acid-yellow);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow-lg);
+    font-family: var(--font-mono);
+    color: var(--pure-black);
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-response-header {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    padding: 12px 18px;
+    border-bottom: var(--brutal-border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.ai-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ai-terminal-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--acid-yellow);
+}
+
+.ai-badges-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.status-badge {
+    border: 2px solid var(--pure-black);
+    padding: 3px 9px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.status-badge.cache-hit {
+    background-color: var(--monitor-green);
+    color: var(--pure-black);
+}
+
+.status-badge.queue-live {
+    background-color: var(--pure-white);
+    color: var(--pure-black);
+}
+
+.status-badge.threat-critical {
+    background-color: var(--alert-orange);
+    color: var(--pure-black);
+}
+
+.status-badge.threat-medium {
+    background-color: var(--acid-yellow);
+    color: var(--pure-black);
+}
+
+.status-badge.threat-low {
+    background-color: var(--monitor-green);
+    color: var(--pure-black);
+}
+
+.ai-response-content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+/* Barra de Metadados Táticos da Resposta */
+.ai-meta-strip {
+    background-color: var(--pure-white);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ai-meta-cell {
+    border-right: 2px solid var(--pure-black);
+    padding-right: 10px;
+}
+
+.ai-meta-cell:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.ai-meta-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #444444;
+}
+
+.ai-meta-value {
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 2px;
+    word-break: break-word;
+}
+
+/* Diretiva Principal e Lista de Passos */
+.ai-directive-banner {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    border: var(--brutal-border);
+    padding: 12px 16px;
+}
+
+.ai-directive-label {
+    font-size: 10px;
+    color: var(--monitor-green);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.ai-directive-heading {
+    font-family: var(--font-display);
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+.ai-steps-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.ai-step-item {
+    background-color: var(--pure-white);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    align-items: start;
+    gap: 12px;
+}
+
+.ai-step-number {
+    background-color: var(--pure-black);
+    color: var(--acid-yellow);
+    font-family: var(--font-display);
+    font-size: 14px;
+    padding: 4px 0;
+    text-align: center;
+    border: 2px solid var(--pure-black);
+}
+
+.ai-step-text {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--pure-black);
+}
+
+/* Grid de Métricas / Loadout (4 blocos) */
+.ai-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ai-metric-card {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+    padding: 10px 12px;
+}
+
+.ai-metric-card-label {
+    font-size: 10px;
+    color: var(--acid-yellow);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.ai-metric-card-value {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--monitor-green);
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* Bloco de Resultado Projetado & Ações de Exportação */
+.ai-outcome-bar {
+    background-color: var(--pure-white);
+    border: var(--brutal-border);
+    padding: 12px 14px;
+    font-weight: 800;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ai-outcome-tag {
+    background-color: var(--monitor-green);
+    color: var(--pure-black);
+    border: 2px solid var(--pure-black);
+    padding: 2px 8px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.ai-actions-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 4px;
+}
+
+.ai-hash-signature {
+    font-size: 11px;
+    font-weight: 700;
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    padding: 6px 10px;
+    border: 2px solid var(--pure-black);
+}
+
+.ai-export-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Overlay de Processamento da Queue */
+.queue-loading-banner {
+    display: none;
+    background-color: var(--pure-black);
+    color: var(--monitor-green);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+    padding: 14px 16px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.queue-loading-banner.is-visible {
+    display: flex;
+}
+
+/* ==========================================================================
+   8. TABELA / LISTA DE LOGS TÁTICOS RECENTES (HISTÓRICO EM CACHE MYSQL)
+   ========================================================================== */
+.logs-table-wrapper {
+    overflow-x: auto;
+}
+
+.brutal-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--pure-white);
+    border: var(--brutal-border);
+}
+
+.brutal-table thead th {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    font-family: var(--font-display);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: var(--brutal-border);
+    border-right: 2px solid #333333;
+}
+
+.brutal-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--pure-black);
+    border-right: 2px solid var(--pure-black);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.brutal-table tbody tr:hover {
+    background-color: #FFF9D6;
+}
+
+.btn-load-log {
+    background-color: var(--acid-yellow);
+    color: var(--pure-black);
+    border: 2px solid var(--pure-black);
+    box-shadow: 3px 3px 0px var(--pure-black);
+    padding: 4px 10px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-load-log:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--pure-black);
+}
+
+/* ==========================================================================
+   9. RESPONSIVIDADE DO CSS GRID (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 1140px) {
+    .deck-col-left,
+    .deck-col-right {
+        grid-column: span 12;
+    }
+
+    .ai-meta-strip,
+    .ai-metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ai-meta-cell:nth-child(2) {
+        border-right: none;
+    }
+}
+
+@media (max-width: 680px) {
+    .top-telemetry-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .telemetry-strip {
+        justify-content: flex-start;
+    }
+
+    .games-card-grid,
+    .form-row-grid-2,
+    .ai-meta-strip,
+    .ai-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-meta-cell {
+        border-right: none;
+        border-bottom: 2px solid var(--pure-black);
+        padding-bottom: 6px;
+    }
+}
+
